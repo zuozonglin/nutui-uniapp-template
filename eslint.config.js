@@ -6,4 +6,10 @@ module.exports = uni(
     ignores: ['src/manifest.json', 'src/pages.json'],
   },
   unocss.configs.flat,
+  {
+    rules: {
+      'jsonc/sort-keys': 'off',
+      'unocss/order': 'off',
+    },
+  },
 )
