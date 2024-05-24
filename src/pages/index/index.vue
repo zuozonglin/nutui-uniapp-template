@@ -34,11 +34,11 @@ const { data } = useQuery(computed(() => {
   </div>
 </template>
 
-<route  lang="json">
+<route lang="json">
 {
   "style": {
     "navigationStyle": "default",
-    "navigationBarTitleText": "Home"
+    "navigationBarTitleText": "首页"
   }
 }
 </route>

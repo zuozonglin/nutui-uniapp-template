@@ -4,11 +4,11 @@
   </div>
 </template>
 
-<route  lang="json">
+<route lang="json">
 {
   "style": {
     "navigationStyle": "default",
-    "navigationBarTitleText": "Count"
+    "navigationBarTitleText": "个人中心"
   }
 }
 </route>

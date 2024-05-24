@@ -4,14 +4,17 @@ import { useAppStore } from '@/store'
 const { darkMode } = storeToRefs(useAppStore())
 const page = ref(getCurrentPages()[0].route)
 const activeIndex = ref()
-const aColor = ref('#3CB4E5')
+const aColor = ref('#21dd40')
 const unColor = ref('#84929A')
 const size = ref('24rpx')
+
 onShow(async () => {
   if (page.value === 'pages/index/index')
     activeIndex.value = 0
-  if (page.value === 'pages/count/count')
+  else if (page.value === 'pages/category/category')
     activeIndex.value = 1
+  else if (page.value === 'pages/my/my')
+    activeIndex.value = 2
 })
 
 function changeTab(_: any, index: number | string) {
@@ -22,7 +25,12 @@ function changeTab(_: any, index: number | string) {
   }
   else if (index === 1) {
     uni.switchTab({
-      url: '/pages/count/count',
+      url: '/pages/category/category',
+    })
+  }
+  else if (index === 2) {
+    uni.switchTab({
+      url: '/pages/my/my',
     })
   }
 }
@@ -38,8 +46,9 @@ function changeTab(_: any, index: number | string) {
       :size="size" :active-color="aColor"
       :unactive-color="unColor" safe-area-inset-bottom bottom placeholder @tab-switch="changeTab"
     >
-      <nut-tabbar-item tab-title="Home" icon="home" @click="changeTab" />
-      <nut-tabbar-item dot tab-title="Count" icon="my" @click="changeTab" />
+      <nut-tabbar-item tab-title="首页" icon="home" @click="changeTab" />
+      <nut-tabbar-item tab-title="分类" icon="category" @click="changeTab" />
+      <nut-tabbar-item dot tab-title="我的" icon="my" @click="changeTab" />
     </NutTabBar>
     <!-- #endif -->
   </nut-config-provider>

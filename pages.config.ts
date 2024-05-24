@@ -28,11 +28,15 @@ export default defineUniPages({
     list: [
       {
         pagePath: 'pages/index/index',
-        text: 'Home',
+        text: '首页',
       },
       {
-        pagePath: 'pages/count/count',
-        text: 'Count',
+        pagePath: 'pages/category/category',
+        text: '分类',
+      },
+      {
+        pagePath: 'pages/my/my',
+        text: '我的',
       },
     ],
   },
