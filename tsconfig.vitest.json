@@ -19,5 +19,5 @@
       "vite/client"
     ]
   },
-  "exclude": []
+  "exclude": ["node_modules"]
 }
