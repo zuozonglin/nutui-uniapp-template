@@ -67,4 +67,7 @@
     "yaml"
   ],
   "vue.codeActions.enabled": false,
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
