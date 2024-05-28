@@ -53,7 +53,8 @@ function changeTab(_: any, index: number | string) {
   --nut-noticebar-lefticon-margin: 0 2px;
   --nut-noticebar-righticon-margin: 0 2px;
   --nut-noticebar-font-size: 12px;
-
+  --nut-grid-item-content-padding: 8px 8px;
+  --nut-card-left-border-radius: 10px;
 }
 
 .header {

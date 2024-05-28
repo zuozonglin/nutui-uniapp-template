@@ -10,10 +10,20 @@ interface GITHUB {
   html_url: string
 }
 
-interface MainGrid {
+interface GridObj {
   src: string
   url: string
   title: string
+}
+
+interface CardObj {
+  imgUrl: string
+  title: string
+  price: string
+  vipPrice: string
+  shopDesc: string
+  delivery: string
+  shopName: string
 }
 
 export function fetchGitHubRepo(repo: string) {
@@ -23,4 +33,4 @@ export function fetchGitHubRepo(repo: string) {
   }
 }
 
-export type { MainGrid }
+export type { GridObj, CardObj }
