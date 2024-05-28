@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import { useQuery } from '@tanstack/vue-query'
-import { onMounted, reactive, toRefs } from 'vue'
+import { onMounted, reactive } from 'vue'
+import type { MainGrid } from '@/api'
 import { fetchGitHubRepo } from '@/api'
 
 // #ifdef MP
@@ -17,6 +18,7 @@ const { data } = useQuery(
 const state = reactive({
   page: 0,
   list: [] as string[],
+  mainGridList: [] as MainGrid[],
 })
 
 onMounted(() => {
@@ -24,11 +26,17 @@ onMounted(() => {
     'https://storage.360buyimg.com/jdc-article/NutUItaro34.jpg',
     'https://storage.360buyimg.com/jdc-article/welcomenutui.jpg',
   ]
+  state.mainGridList = [
+    { src: '/static/logo.png', url: '', title: 'uniapp' },
+    { src: '/static/vue.svg', url: '', title: 'vue3' },
+    { src: '/static/vite.svg', url: '', title: 'vite' },
+    { src: '/static/logo.png', url: '', title: '标题' },
+  ]
 })
 </script>
 
 <template>
-  <div class="px-4 py-10 text-center text-gray-700 font-sans">
+  <div class="px-4 text-center text-gray-700 font-sans">
     <div flex="~ justify-evenly" class="swiper-container">
       <NutSwiper :init-page="state.page" :pagination-visible="true" pagination-color="#426543" pagination-unselected-color="#808080" auto-play="0" :loop="true">
         <NutSwiperItem v-for="(item, index) in state.list" :key="index">
@@ -36,11 +44,13 @@ onMounted(() => {
         </NutSwiperItem>
       </NutSwiper>
     </div>
-    <div flex="~ justify-evenly">
-      <image class="logo" src="/static/logo.png" />
-      <image class="logo" src="/static/vue.svg" />
-      <image class="logo" src="/static/vite.svg" />
-    </div>
+    <NutGrid :border="false">
+      <NutGridItem v-for="(v, i) in state.mainGridList" :key="i" :text="v.title">
+        <NutAvatar size="large">
+          <image :src="v.src" />
+        </NutAvatar>
+      </NutGridItem>
+    </NutGrid>
     <div>
       <div class="i-carbon-campsite" inline-block text-80 />
       <p>

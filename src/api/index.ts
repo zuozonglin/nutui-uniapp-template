@@ -10,9 +10,17 @@ interface GITHUB {
   html_url: string
 }
 
+interface MainGrid {
+  src: string
+  url: string
+  title: string
+}
+
 export function fetchGitHubRepo(repo: string) {
   return {
     queryKey: [repo, 'repos'],
     queryFn: async () => (await unInstance.get<GITHUB>(`repos/${repo}`)).data,
   }
 }
+
+export type { MainGrid }

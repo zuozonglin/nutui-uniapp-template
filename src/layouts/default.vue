@@ -54,7 +54,11 @@ function changeTab(_: any, index: number | string) {
   </nut-config-provider>
 </template>
 
-<style>
+<style lang="scss">
+:root, page {
+  background-color: $uni-bg-color-grey;
+}
+
 .header {
   color: #fff;
   background-color: black;

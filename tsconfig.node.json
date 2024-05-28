@@ -2,8 +2,8 @@
   "extends": "@tsconfig/node18/tsconfig.json",
   "compilerOptions": {
     "composite": true,
-    "module": "nodenext",
-    "moduleResolution": "NodeNext",
+    "module": "esnext",
+    "moduleResolution": "Node",
     "types": [
       "node"
     ]
