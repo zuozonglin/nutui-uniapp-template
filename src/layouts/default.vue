@@ -47,6 +47,13 @@ function changeTab(_: any, index: number | string) {
 <style lang="scss">
 :root, page {
   background-color: $uni-bg-color-grey;
+
+  --nut-noticebar-across-height: 30px;
+  --nut-noticebar-box-padding: 0 5px;
+  --nut-noticebar-lefticon-margin: 0 2px;
+  --nut-noticebar-righticon-margin: 0 2px;
+  --nut-noticebar-font-size: 12px;
+
 }
 
 .header {
