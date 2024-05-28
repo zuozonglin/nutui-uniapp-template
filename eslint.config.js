@@ -10,6 +10,7 @@ module.exports = uni(
     rules: {
       'jsonc/sort-keys': 'off',
       'unocss/order': 'off',
+      'unused-imports/no-unused-vars': 'off',
     },
   },
 )

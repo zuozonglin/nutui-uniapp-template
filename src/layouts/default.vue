@@ -8,31 +8,21 @@ const aColor = ref('#21dd40')
 const unColor = ref('#84929A')
 const size = ref('24rpx')
 
+// 定义TabBar页面 注意此处页面的顺序不要乱，与TabBar实际显示顺序一致
+const tabPages = [
+  'pages/index/index',
+  'pages/category/category',
+  'pages/my/my',
+]
+
 onShow(async () => {
-  if (page.value === 'pages/index/index')
-    activeIndex.value = 0
-  else if (page.value === 'pages/category/category')
-    activeIndex.value = 1
-  else if (page.value === 'pages/my/my')
-    activeIndex.value = 2
+  activeIndex.value = tabPages.indexOf(page.value)
 })
 
 function changeTab(_: any, index: number | string) {
-  if (index === 0) {
-    uni.switchTab({
-      url: '/pages/index/index',
-    })
-  }
-  else if (index === 1) {
-    uni.switchTab({
-      url: '/pages/category/category',
-    })
-  }
-  else if (index === 2) {
-    uni.switchTab({
-      url: '/pages/my/my',
-    })
-  }
+  uni.switchTab({
+    url: `/${tabPages[index as number]}`,
+  })
 }
 </script>
 
