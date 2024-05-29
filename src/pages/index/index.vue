@@ -16,10 +16,11 @@ const { data } = useQuery(
 // #endif
 
 const state = reactive({
-  page: 0,
   swiperList: [] as string[],
   gridList: [] as GridObj[],
   cardList: [] as CardObj[],
+  cardPage: 0,
+  cardStatus: 'more',
 })
 
 onMounted(() => {
@@ -63,12 +64,25 @@ onMounted(() => {
     },
   ]
 })
+
+onReachBottom(() => {
+  if (state.cardStatus !== 'more')
+    return
+  state.cardStatus = 'loading'
+  state.cardPage++
+  // 模拟加载下一页数据 此处省略请求数据过程
+  setTimeout(() => {
+    state.cardList.push(...state.cardList)
+    state.cardStatus = 'noMore'
+    // console.log(`模拟请求数据结束，没有下一页了，当前页码：${state.cardPage}`)
+  }, 1000)
+})
 </script>
 
 <template>
   <div class="px-4 text-center text-gray-700 font-sans">
     <div flex="~ justify-evenly" class="swiper-container">
-      <NutSwiper :init-page="state.page" :pagination-visible="true" pagination-color="#426543" pagination-unselected-color="#808080" auto-play="0" :loop="true">
+      <NutSwiper :init-page="0" :pagination-visible="true" pagination-color="#426543" pagination-unselected-color="#808080" auto-play="0" :loop="true">
         <NutSwiperItem v-for="(item, index) in state.swiperList" :key="index">
           <image :src="item" mode="aspectFill" class="swi-img" />
         </NutSwiperItem>
@@ -95,14 +109,7 @@ onMounted(() => {
         :delivery="item.delivery"
         :shop-name="item.shopName"
       />
-    </div>
-    <div>
-      <div class="i-carbon-campsite" inline-block text-80 />
-      <p>
-        <!-- #ifdef MP-WEIXIN -->
-        <a :href="data?.html_url" text-14px text-gray decoration-none op75 rel="noreferrer" target="_blank"> 一个uniapp，vite，vue3的起始模版 </a>
-        <!-- #endif -->
-      </p>
+      <uni-load-more :status="state.cardStatus" />
     </div>
   </div>
 </template>
