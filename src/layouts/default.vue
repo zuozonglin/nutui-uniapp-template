@@ -1,13 +1,6 @@
 <script lang="ts" setup>
 import { useAppStore } from '@/store'
 
-const { darkMode } = storeToRefs(useAppStore())
-const page = ref(getCurrentPages()[0].route)
-const activeIndex = ref()
-const aColor = ref('#21dd40')
-const unColor = ref('#84929A')
-const size = ref('24rpx')
-
 // 定义TabBar页面 注意此处页面的顺序不要乱，与TabBar实际显示顺序一致
 const tabPages = [
   'pages/index/index',
@@ -15,11 +8,19 @@ const tabPages = [
   'pages/my/my',
 ]
 
+const { darkMode } = storeToRefs(useAppStore())
+const page = ref(getCurrentPages()[0].route)
+const activeIndex = ref(tabPages.indexOf(page.value))
+const aColor = ref('#21dd40')
+const unColor = ref('#84929A')
+const size = ref('24rpx')
+
 onShow(async () => {
   activeIndex.value = tabPages.indexOf(page.value)
 })
 
 function changeTab(_: any, index: number | string) {
+  // console.log('changeTabBar.index:', index)
   uni.switchTab({
     url: `/${tabPages[index as number]}`,
   })

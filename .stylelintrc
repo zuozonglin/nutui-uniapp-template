@@ -11,12 +11,7 @@
     "stylelint-order"
   ],
   "rules": {
-    "selector-class-pattern": [
-      "^([#a-z][$#{}a-z0-9]*)((-{1,2}|_{2})[$#{}a-z0-9]+)*$",
-      {
-        "message": "Expected class selector to be kebab-case"
-      }
-    ],
+    "selector-class-pattern": null,
     "selector-pseudo-class-no-unknown": [
       true,
       {

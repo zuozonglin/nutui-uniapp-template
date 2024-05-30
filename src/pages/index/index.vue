@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import { useQuery } from '@tanstack/vue-query'
-import { onMounted, reactive } from 'vue'
 import type { CardObj, GridObj } from '@/api'
 import { fetchGitHubRepo } from '@/api'
 
@@ -13,6 +12,8 @@ const { data } = useQuery(
     }
   }),
 )
+
+// console.log(toRaw(data.value))
 // #endif
 
 const state = reactive({
@@ -32,7 +33,7 @@ onMounted(() => {
     { src: '/static/logo.png', url: '', title: 'uniapp' },
     { src: '/static/vue.svg', url: '', title: 'vue3' },
     { src: '/static/vite.svg', url: '', title: 'vite' },
-    { src: '/static/logo.png', url: '', title: '标题' },
+    { src: data.value?.owner.avatar_url, url: '', title: '一个头像' },
   ]
   state.cardList = [
     {

@@ -3,7 +3,7 @@ import { unInstance } from '@/service'
 
 interface GITHUB {
   owner: {
-    archive_url: string
+    avatar_url: string
     login: string
   }
   full_name: string
