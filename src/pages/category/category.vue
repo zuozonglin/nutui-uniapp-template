@@ -31,7 +31,9 @@ function toCategoryDetail() {
 {
   "style": {
     "navigationStyle": "default",
-    "navigationBarTitleText": "分类"
+    "navigationBarTitleText": "分类",
+    "navigationBarBackgroundColor": "#fa2c19",
+    "navigationBarTextStyle": "white"
   }
 }
 </route>
