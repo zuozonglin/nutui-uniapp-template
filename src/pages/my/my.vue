@@ -98,12 +98,12 @@ onMounted(() => {
   <uni-card margin="5px" padding="5px">
     <UniList :border="false">
       <UniListItem title="开启点击反馈" clickable @click="clickList" />
-      <UniListItem
-        :show-extra-icon="true" :extra-icon="{ color: '#4cd964', size: '22', type: 'gear' }"
-        title="列表左侧带扩展图标"
-      />
       <UniListItem title="默认 navigateTo 方式跳转页面" link to="/pages/index/index" />
       <UniListItem title="reLaunch 方式跳转页面" link="reLaunch" to="/pages/index/index" />
+      <UniListItem
+        :show-extra-icon="true" :extra-icon="{ color: '#fa2c19', size: '22', type: 'gear' }"
+        title="账号设置" link to="/pages/my/settings"
+      />
     </UniList>
   </uni-card>
 </template>
@@ -121,6 +121,8 @@ onMounted(() => {
 </route>
 
 <style lang="scss" scoped>
+@import '../../styles/uniset';
+
 .head-container {
   width: 100vw;
   height: 170px;
@@ -156,15 +158,6 @@ onMounted(() => {
   .head-bottom {
     .grid-item {
       flex-basis: 25%;
-    }
-  }
-}
-
-::v-deep .uni-list-item__header {
-  .uni-list-item__icon {
-    .uni-icons {
-      display: flex;
-      align-items: center;
     }
   }
 }

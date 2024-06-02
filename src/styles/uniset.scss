@@ -1,0 +1,13 @@
+/*
+ * uniset.scss 定制uni-ui组件相关样式
+ * 
+ */
+
+::v-deep .uni-list-item__header {
+  .uni-list-item__icon {
+    .uni-icons {
+      display: flex;
+      align-items: center;
+    }
+  }
+}

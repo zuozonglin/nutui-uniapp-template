@@ -51,8 +51,8 @@ function changeTab(_: any, index: number | string) {
   --nut-card-left-border-radius: 10px;
 }
 
-.header {
-  color: #fff;
-  background-color: black;
-}
+// .header {
+//   color: #fff;
+//   background-color: black;
+// }
 </style>
