@@ -12,7 +12,6 @@ const { data } = useQuery(
     }
   }),
 )
-
 // console.log(toRaw(data.value))
 // #endif
 
@@ -81,24 +80,24 @@ onReachBottom(() => {
 </script>
 
 <template>
+  <div flex="~ justify-evenly" class="swiper-container">
+    <NutSwiper :init-page="0" :pagination-visible="true" pagination-color="#426543" pagination-unselected-color="#808080" auto-play="0" :loop="true">
+      <NutSwiperItem v-for="(item, index) in state.swiperList" :key="index">
+        <image :src="item" mode="aspectFill" class="swi-img" />
+      </NutSwiperItem>
+    </NutSwiper>
+  </div>
+  <NutNoticebar :close-mode="true" :height="30">
+    NutUI 是京东风格的移动端组件库，使用 Vue 语言来编写可以在 H5，小程序平台上的应用，帮助研发人员提升开发效率，改善开发体验。
+  </NutNoticebar>
+  <NutGrid :border="false">
+    <NutGridItem v-for="(v, i) in state.gridList" :key="i" :text="v.title">
+      <NutAvatar size="large">
+        <image :src="v.src" />
+      </NutAvatar>
+    </NutGridItem>
+  </NutGrid>
   <div class="px-4 text-center text-gray-700 font-sans">
-    <div flex="~ justify-evenly" class="swiper-container">
-      <NutSwiper :init-page="0" :pagination-visible="true" pagination-color="#426543" pagination-unselected-color="#808080" auto-play="0" :loop="true">
-        <NutSwiperItem v-for="(item, index) in state.swiperList" :key="index">
-          <image :src="item" mode="aspectFill" class="swi-img" />
-        </NutSwiperItem>
-      </NutSwiper>
-    </div>
-    <NutNoticebar :close-mode="true" :height="30">
-      NutUI 是京东风格的移动端组件库，使用 Vue 语言来编写可以在 H5，小程序平台上的应用，帮助研发人员提升开发效率，改善开发体验。
-    </NutNoticebar>
-    <NutGrid :border="false">
-      <NutGridItem v-for="(v, i) in state.gridList" :key="i" :text="v.title">
-        <NutAvatar size="large">
-          <image :src="v.src" />
-        </NutAvatar>
-      </NutGridItem>
-    </NutGrid>
     <div class="mt-8 card-container">
       <NutCard
         v-for="(item, index) in state.cardList" :key="index"
