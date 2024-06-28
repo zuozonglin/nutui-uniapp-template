@@ -30,8 +30,9 @@
       "nutui-uniapp/global.d.ts",
       "unplugin-icons/types/vue",
       "type-fest",
-      "vite/client",
+      "vite/client"
     ],
+    "strict": false,
     "sourceMap": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
@@ -48,6 +49,7 @@
     "package.json"
   ],
   "exclude": [
+    "node_modules",
     "src/**/__tests__/*",
     "src/**/*.test.*"
   ],
